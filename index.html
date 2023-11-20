@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registro de Pessoas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .containerx {
+      display: flex;
+      align-items: center;
+    }
+    .imagex {
+      width: auto;
+      height: auto;
+      flex: 1;
+    }
+    .textx {
+      margin-left: 20px;
+      flex: 1;
+    }
+    .navbar {
+            background-color: #0097B2;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .navbar-icon {
+            margin-right: 10px;
+            width: 10em;
+
+        }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #BAE0E9;
+      border-radius: 5px;
+    }
+    .form-group input[type="submit"] {
+      background-color: #0097B2;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function validarFormulario() {
+      var nome = document.getElementById("nome").value;
+      var cpf = document.getElementById("cpf").value;
+      var email = document.getElementById("email").value;
+      var senha = document.getElementById("senha").value;
+
+      if (nome === ""|| cpf === ""|| email === ""|| senha === "") {
+        alert("Por favor, preencha todos os campos.");
+        return false;
+      }
+
+      // Outras validações podem ser adicionadas aqui
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <div class="navbar">
+    <img src="Saco icon.jpg" alt="Navbar Icon" class="navbar-icon">
+</div>
+<div class="containerx">
+  <img src="Saco logo.jpg" alt="Image" class="imagex">
+  <div class="container">
+    <h1>Preencha o formulário com as informações</h1>
+    <form onsubmit="return validarFormulario()">
+      <div class="form-group">
+        <label for="nome">Nome Completo:</label>
+        <input type="text" pattern="[A-Za-z0-9\s]+" title="Insira apenas letras do nome" id="nome" name="nome" required/>
+
+      </div>
+      <div class="form-group">
+        <label for="cpf">CPF:</label>
+        <input type="text" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+        title="Digite o CPF no formato nnn.nnn.nnn-nn" id="cpf" name="cpf" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Registrar">
+      </div>
+    </form>
+  </div>
+</body>
+</html>
